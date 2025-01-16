@@ -24,7 +24,7 @@ app.get('/contacts', async (req, res) => {
 
 app.get('/contacts/:contactId', async (req, res) => {
   const { contactId } = req.params;
-  const contact = getContactById(contactId);
+  const contact = await getContactById(contactId);
 
   if (!contact) {
     return res.status(404).json({
