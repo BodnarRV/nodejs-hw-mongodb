@@ -18,6 +18,13 @@ export const setupServer = () => {
     }),
   );
 
+  app.get('/', async (req, res) => {
+    res.status(200).json({
+      status: 200,
+      message: 'Hi, it`s working!!!😁',
+    });
+  });
+
   app.get('/contacts', async (req, res) => {
     const contacts = await getContacts();
     res.json(contacts);
