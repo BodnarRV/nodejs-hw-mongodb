@@ -1,4 +1,7 @@
-import { ContactCollection } from '../models/contacts.js';
+import {
+  ContactCollection,
+  ContactCollectionPatch,
+} from '../models/contacts.js';
 
 export const getContacts = async () => {
   const contacts = await ContactCollection.find();
@@ -23,7 +26,7 @@ export const deleteContact = async (contactId) => {
 };
 
 export const updateContact = async (contactId, payload, options = {}) => {
-  const rawResult = await ContactCollection.findOneAndUpdate(
+  const rawResult = await ContactCollectionPatch.findOneAndUpdate(
     { _id: contactId },
     payload,
     {
