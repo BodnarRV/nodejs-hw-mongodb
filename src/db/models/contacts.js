@@ -16,20 +16,4 @@ const contactSchema = new Schema(
   { timestamps: true, versionKey: false },
 );
 
-const contactSchemaPatch = new Schema(
-  {
-    name: { type: String },
-    phoneNumber: { type: String },
-    email: { type: String },
-    isFavourite: { type: Boolean },
-    contactType: {
-      type: String,
-      enum: ['work', 'home', 'personal'],
-      default: 'personal',
-    },
-  },
-  { timestamps: true, versionKey: false },
-);
-
 export const ContactCollection = model('contacts', contactSchema);
-export const ContactCollectionPatch = model('contacts', contactSchemaPatch);
