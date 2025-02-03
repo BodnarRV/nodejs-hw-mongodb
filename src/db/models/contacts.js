@@ -12,6 +12,10 @@ const contactSchema = new Schema(
       required: true,
       default: 'personal',
     },
+    parentId: {
+      type: Schema.Types.ObjectId,
+      ref: 'users',
+    },
   },
   { timestamps: true, versionKey: false },
 );
