@@ -12,12 +12,12 @@ const contactSchema = new Schema(
       required: true,
       default: 'personal',
     },
+    photo: { type: String, default: '' },
     userId: {
       type: Schema.Types.ObjectId,
       ref: 'users',
       required: true,
     },
-    photo: { type: String },
   },
   { timestamps: true, versionKey: false },
 );
