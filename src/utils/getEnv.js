@@ -8,7 +8,7 @@ export const getEnv = (envVarName, defaultValue) => {
   }
 
   if (!envVar) {
-    throw new Error(`EnvVar with name ${envVarName} not exist!`);
+    throw new Error(`EnvVar with name ${envVar} not exist!`);
   }
 
   return envVar;
