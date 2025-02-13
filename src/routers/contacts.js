@@ -21,32 +21,22 @@ router.use(authenticate);
 
 router.get('/', ctrlWrapper(getContactsController));
 router.get('/:contactId', isValidId, ctrlWrapper(getContactByIdController));
+
+router.delete('/:contactId', isValidId, ctrlWrapper(deleteContactController));
+
 router.post(
   '/',
+  upload.single('photo'),
   validateBody(createContactsSchema),
   ctrlWrapper(createContactController),
 );
-router.delete('/:contactId', isValidId, ctrlWrapper(deleteContactController));
+
 router.patch(
   '/:contactId',
   isValidId,
+  upload.single('photo'),
   validateBody(updateContactsSchema),
   ctrlWrapper(patchContactController),
-);
-
-router.post(
-  '/',
-  upload.single('photo'),
-  validateBody(createContactsSchema),
-  ctrlWrapper(createContactController),
-);
-
-router.patch(
-  '/:contactId',
-  isValidId,
-  upload.single('photo'),
-  validateBody(updateContactsSchema),
-  ctrlWrapper(createContactController),
 );
 
 export default router;
