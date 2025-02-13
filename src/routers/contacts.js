@@ -20,11 +20,7 @@ const router = Router();
 router.use(authenticate);
 
 router.get('/', ctrlWrapper(getContactsController));
-router.get(
-  '/contacts/:contactId',
-  isValidId,
-  ctrlWrapper(getContactByIdController),
-);
+router.get('/:contactId', isValidId, ctrlWrapper(getContactByIdController));
 router.post(
   '/',
   validateBody(createContactsSchema),
@@ -46,7 +42,7 @@ router.post(
 );
 
 router.patch(
-  '/:studentId',
+  '/:contactId',
   isValidId,
   upload.single('photo'),
   validateBody(updateContactsSchema),
