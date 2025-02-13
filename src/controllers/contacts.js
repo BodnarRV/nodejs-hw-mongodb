@@ -71,7 +71,7 @@ export const deleteContactController = async (req, res, next) => {
 };
 
 export const patchContactController = async (req, res, next) => {
-  const { studentId } = req.params;
+  const { contactIdId } = req.params;
   const photo = req.file;
 
   let photoUrl;
@@ -84,19 +84,19 @@ export const patchContactController = async (req, res, next) => {
     }
   }
 
-  const result = await updateContact(studentId, {
+  const result = await updateContact(contactIdId, {
     ...req.body,
     photo: photoUrl,
   });
 
   if (!result) {
-    next(createHttpError(404, 'Student not found'));
+    next(createHttpError(404, 'Contact not found'));
     return;
   }
 
   res.json({
     status: 200,
-    message: `Successfully patched a student!`,
-    data: result.student,
+    message: `Successfully patched a contact!`,
+    data: result.contact,
   });
 };
