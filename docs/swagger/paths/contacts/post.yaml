@@ -1,0 +1,57 @@
+tags:
+  - Contacts
+summary: Create a new contact
+operationId: createContact
+description: 'Create a new contact for the specified user.'
+security:
+  - bearerAuth: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+            example: 'John Doe'
+          phoneNumber:
+            type: string
+            example: '+380983383897'
+          email:
+            type: string
+            format: email
+            example: 'johndoe@example.com'
+          isFavourite:
+            type: boolean
+            example: true
+          contactType:
+            type: string
+            enum: ['work', 'home', 'personal']
+            example: 'work'
+          photo:
+            type: string
+            example: 'https://example.com/photo.png'
+          userId:
+            type: string
+            example: '65e4decdd286b30065d54af9'
+responses:
+  '201':
+    description: 'Successfully created the contact'
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/contact'
+  '400':
+    description: 'Bad request'
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 400
+            message:
+              type: string
+              example: 'Invalid request body'

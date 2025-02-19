@@ -1,0 +1,76 @@
+tags:
+  - Contacts
+summary: Get all contacts for a specific user
+operationId: getContacts
+description: 'Retrieve all contacts for the specified user with pagination and sorting.'
+security:
+  - bearerAuth: []
+parameters:
+  - in: query
+    name: userId
+    required: true
+    schema:
+      type: string
+      example: '65e4decdd286b30065d54af9'
+  - in: query
+    name: page
+    required: false
+    schema:
+      type: integer
+      example: 1
+  - in: query
+    name: perPage
+    required: false
+    schema:
+      type: integer
+      example: 10
+  - in: query
+    name: sortOrder
+    required: false
+    schema:
+      type: string
+      enum: ['ASC', 'DESC']
+      example: 'ASC'
+  - in: query
+    name: sortBy
+    required: false
+    schema:
+      type: string
+      example: '_id'
+responses:
+  '200':
+    description: 'Successfully retrieved contacts'
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: '#/components/schemas/contact'
+            pagination:
+              type: object
+              properties:
+                totalPages:
+                  type: integer
+                  example: 10
+                currentPage:
+                  type: integer
+                  example: 1
+                totalContacts:
+                  type: integer
+                  example: 100
+  '400':
+    description: 'Bad request'
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 400
+            message:
+              type: string
+              example: 'Invalid query parameters'
