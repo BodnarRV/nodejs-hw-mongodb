@@ -48,7 +48,7 @@ responses:
             data:
               type: array
               items:
-                $ref: '#/components/schemas/contact'
+                $ref: ../../components/schemas/contact.yaml
             pagination:
               type: object
               properties:

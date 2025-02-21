@@ -51,7 +51,7 @@ responses:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/contact'
+          $ref: '../../components/schemas/contact.yaml'
   '400':
     description: 'Bad request'
     content:
