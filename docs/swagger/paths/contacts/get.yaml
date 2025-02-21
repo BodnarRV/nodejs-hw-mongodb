@@ -7,12 +7,6 @@ security:
   - bearerAuth: []
 parameters:
   - in: query
-    name: userId
-    required: true
-    schema:
-      type: string
-      example: '65e4decdd286b30065d54af9'
-  - in: query
     name: page
     required: false
     schema:
@@ -36,6 +30,7 @@ parameters:
     required: false
     schema:
       type: string
+      enum: ['_id', 'name', 'phoneNumber']
       example: '_id'
 responses:
   '200':

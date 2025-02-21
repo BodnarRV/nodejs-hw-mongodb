@@ -8,7 +8,7 @@ security:
 requestBody:
   required: true
   content:
-    application/json:
+    multipart/form-data:
       schema:
         type: object
         properties:
@@ -31,7 +31,8 @@ requestBody:
             example: 'work'
           photo:
             type: string
-            example: 'https://example.com/photo.png'
+            format: binary
+            description: 'Upload a photo'
           userId:
             type: string
             example: '65e4decdd286b30065d54af9'

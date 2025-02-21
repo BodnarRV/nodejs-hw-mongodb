@@ -44,15 +44,6 @@
         "parameters": [
           {
             "in": "query",
-            "name": "userId",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "65e4decdd286b30065d54af9"
-            }
-          },
-          {
-            "in": "query",
             "name": "page",
             "required": false,
             "schema": {
@@ -88,6 +79,11 @@
             "required": false,
             "schema": {
               "type": "string",
+              "enum": [
+                "_id",
+                "name",
+                "phoneNumber"
+              ],
               "example": "_id"
             }
           }
@@ -165,7 +161,7 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "type": "object",
                 "properties": {
@@ -197,7 +193,8 @@
                   },
                   "photo": {
                     "type": "string",
-                    "example": "https://example.com/photo.png"
+                    "format": "binary",
+                    "description": "Upload a photo"
                   },
                   "userId": {
                     "type": "string",
@@ -342,21 +339,12 @@
               "type": "string",
               "example": "65ca67e7ae7f10c88b598384"
             }
-          },
-          {
-            "in": "query",
-            "name": "userId",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "65e4decdd286b30065d54af9"
-            }
           }
         ],
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "type": "object",
                 "properties": {
@@ -388,7 +376,8 @@
                   },
                   "photo": {
                     "type": "string",
-                    "example": "https://example.com/photo.png"
+                    "format": "binary",
+                    "description": "Upload a photo"
                   }
                 }
               }
@@ -468,15 +457,6 @@
             "schema": {
               "type": "string",
               "example": "65ca67e7ae7f10c88b598384"
-            }
-          },
-          {
-            "in": "query",
-            "name": "userId",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "65e4decdd286b30065d54af9"
             }
           }
         ],
