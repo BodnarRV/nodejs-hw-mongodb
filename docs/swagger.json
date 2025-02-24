@@ -195,10 +195,6 @@
                     "type": "string",
                     "format": "binary",
                     "description": "Upload a photo"
-                  },
-                  "userId": {
-                    "type": "string",
-                    "example": "65e4decdd286b30065d54af9"
                   }
                 }
               }
@@ -333,7 +329,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "contactId",
+            "name": "id",
             "required": true,
             "schema": {
               "type": "string",
@@ -452,7 +448,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "contactId",
+            "name": "id",
             "required": true,
             "schema": {
               "type": "string",
